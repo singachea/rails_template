@@ -1,7 +1,7 @@
 
 
 def sidekiq_run
-  if ask_yes_no "Do you want to include sidekiq module?"
+  if yes_or_blank? "Do you want to include sidekiq module?"
     gem 'sidekiq'
     gem 'sinatra', :require => false
     gem 'slim'
@@ -14,7 +14,7 @@ def sidekiq_run
     route read_file_and_gusb(__FILE__, "_routing.rb", options)
     prepend_to_file 'config/routes.rb', "require 'sidekiq/web'\n\n"
 
-    if ask_yes_no "Do you want to include Procfile (to run sidekiq with foreman)?"
+    if yes_or_blank? "Do you want to include Procfile (to run sidekiq with foreman)?"
       gem 'foreman'
       create_file "Procfile", read_file_and_gusb(__FILE__, "_procfile", {app_name: app_name})
       create_file "proc/staging", "RAILS_ENV=staging"

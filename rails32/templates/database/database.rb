@@ -8,7 +8,7 @@ def database_inject(db_adapter)
 
   yml_env = File.read("#{$root_dir}/templates/database/#{db_adapter}.yml")
   envs = %w(develpment test production)
-  envs << "staging" if yes? "Do you want to include staging environment? [y/n]"
+  envs << "staging" if yes_or_blank? "Do you want to include staging environment? [y/n]"
   yml = ""
   envs.each { |env| yml += yml_env.gsub("database_environment", env) }
 
@@ -20,7 +20,7 @@ end
 
 
 def database_run
-  if ask_yes_no "Do you want to replace current relational database with preset one?"
+  if yes_or_blank? "Do you want to replace current relational database with preset one?"
     database_types = {postgres: "pg", mysql: "mysql2", sqlite: "sqlite3"}
     database_adapter = ""
     while !database_types.keys.map(&:to_s).include?(database_adapter)

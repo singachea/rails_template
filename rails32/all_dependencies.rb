@@ -10,7 +10,7 @@ def ask_with_default(message, default)
   input.present? ? input : default
 end
 
-def ask_yes_no(message)
+def yes_or_blank?(message)
   input = ask("#{message} [y/n]:")
   input == "yes" || input == "y" || !input.present?
 end
