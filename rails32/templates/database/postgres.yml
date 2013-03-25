@@ -1,0 +1,9 @@
+database_environment:
+  adapter: postgresql
+  encoding: unicode
+  database: database_name_database_environment
+  pool: 5
+  username: database_username
+  password: database_password
+
+

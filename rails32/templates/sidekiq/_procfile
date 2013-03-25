@@ -1,0 +1,6 @@
+worker: bundle exec sidekiq -c 10 #-q scheduling -q crawling -q critical,2 -q default
+
+# how to export foreman
+# foreman export upstart /etc/init -a app_name -u <server_user>
+# e.g. for staging: 
+#		rvmsudo foreman export upstart /etc/init -a app_name -u <server_user> -e proc/staging

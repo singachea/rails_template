@@ -1,0 +1,10 @@
+database_environment:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: database_name_database_environment
+  pool: 5
+  username: database_username
+  password: database_password
+
+
