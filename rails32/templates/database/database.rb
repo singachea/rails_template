@@ -8,7 +8,7 @@ def database_inject(db_adapter)
 
   yml_env = File.read("#{$root_dir}/templates/database/#{db_adapter}.yml")
   envs = %w(develpment test production)
-  envs << "staging" if yes_or_blank? "Do you want to include staging environment? [y/n]"
+  envs << "staging" if yes_or_blank? "Do you want to include staging environment?"
   yml = ""
   envs.each { |env| yml += yml_env.gsub("database_environment", env) }
 
@@ -16,6 +16,7 @@ def database_inject(db_adapter)
   yml.gsub!("database_username", db_username)
   yml.gsub!("database_password", db_password)
   create_file("config/database.yml", yml, :force => true)
+  append_to_file ".gitignore", "\nconfig/database.yml\n"
 end
 
 
