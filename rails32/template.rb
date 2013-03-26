@@ -6,6 +6,8 @@ require "#{$root_dir}/all_dependencies"
 
 remove_file "public/index.html"
 
-database_run
+
+#readme_run
+#database_run
 sidekiq_run
 

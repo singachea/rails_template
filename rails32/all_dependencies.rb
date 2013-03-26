@@ -1,4 +1,4 @@
-modules = %w(database sidekiq)
+modules = %w(readme database sidekiq)
 
 modules.each do |mod|
   require "#{$root_dir}/templates/#{mod}/#{mod}.rb"  
@@ -15,7 +15,7 @@ def yes_or_blank?(message)
   input == "yes" || input == "y" || !input.present?
 end
 
-def read_file_and_gusb(source_file, targe_file, options = {})
+def read_file_and_gsub(source_file, targe_file, options = {})
   path = File.expand_path("../#{targe_file}", source_file)
   content = File.read(path)
   options.each do |key, value|
