@@ -1,4 +1,4 @@
-modules = %w(readme database sidekiq)
+modules = %w(readme database sidekiq user twitter_bootstrap haml home_controller)
 
 modules.each do |mod|
   require "#{$root_dir}/templates/#{mod}/#{mod}.rb"  

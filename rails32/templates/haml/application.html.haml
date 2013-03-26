@@ -1,0 +1,14 @@
+!!!
+%head
+	%title Foodprint
+	= stylesheet_link_tag    "application", params[:controller], :media => "all"
+	= javascript_include_tag "application", params[:controller]
+	= csrf_meta_tags
+%body
+	= render "layouts/menu"
+	#body_container
+		.centralizedContainer{style: "padding: 20px; background-color: white; border: 1px solid #EEE; border-radius: 5px"}
+			= render "layouts/flash", :flash => flash
+			= yield
+	#footer
+		2359 Media
