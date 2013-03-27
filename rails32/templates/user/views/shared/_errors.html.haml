@@ -1,0 +1,8 @@
+- unless object.errors.empty?
+	.alert.alert-danger{:style => "width: 400px"}
+		%a.close{"data-dismiss" => "alert"} x
+		%p 
+			%u The record cannot be saved with the following reasons:
+		%ul
+			- object.errors.full_messages.each do |message|
+				%li.text_red= message

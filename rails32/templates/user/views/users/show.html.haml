@@ -1,0 +1,18 @@
+%h1 My Profile
+#border-enclosed
+	%table
+		%tr
+			%td.span2 Email
+			%td= @user.email
+			
+		%tr
+			%td First name
+			%td= @user.first_name
+			
+		%tr
+			%td Last name
+			%td= @user.last_name
+			
+		%tr
+			%td Role
+			%td= @user.role.humanize

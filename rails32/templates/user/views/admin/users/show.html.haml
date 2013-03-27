@@ -1,0 +1,23 @@
+%h1 User <em>#{@user.display_name}</em>
+
+%p= link_to "Go back to user list", admin_users_path, :class => "btn"
+
+%table.table
+	%tr
+		%td Email
+		%td= @user.email
+	%tr
+		%td First Name
+		%td= @user.first_name
+	%tr
+		%td Last Name
+		%td= @user.last_name
+	%tr
+		%td Locked
+		%td= label_yes_no @user.locked
+	%tr
+		%td Activated
+		%td= label_yes_no @user.activated
+	%tr
+		%td Role
+		%td= @user.role.humanize

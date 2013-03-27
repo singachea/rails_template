@@ -1,0 +1,16 @@
+#login-section
+	= form_tag sessions_path, :class => "form form-inline" do
+		.field
+			= label_tag :email
+			%br= text_field_tag :email, params[:email] #, :placeholder => "Email"
+		.field
+			= label_tag :password
+			%br= password_field_tag :password, nil #, :placeholder => "Password"
+		.field
+			= label_tag :remember_me
+			= check_box_tag :remember_me, 1, params[:remember_me]
+		.actions
+			= submit_tag "Log in", :class => "btn btn-large btn-primary"
+		#forget_password
+			= link_to "Forget password?", forget_password_profile_url
+		.clearfix

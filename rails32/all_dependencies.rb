@@ -1,7 +1,9 @@
+
+
 modules = %w(readme database sidekiq user twitter_bootstrap haml home_controller)
 
 modules.each do |mod|
-  require "#{$root_dir}/templates/#{mod}/#{mod}.rb"  
+  require File.expand_path("../templates/#{mod}/#{mod}.rb", __FILE__)  
 end
 
 

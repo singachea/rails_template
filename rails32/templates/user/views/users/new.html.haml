@@ -1,0 +1,19 @@
+#signup-section
+	%h1{style: "width: 680px"} Signup
+
+	= form_for @user, :url => profile_path, :html => {:class => "form form-inline"} do |f|
+		= render "shared/errors", :object => @user
+		.field
+			= f.label :email
+			%br= f.text_field :email #, :placeholder => "Email"
+		.field
+			= f.label :password
+			%br= f.password_field :password #, :placeholder => "Password"
+		.field
+			= f.label :password_confirmation
+			%br= f.password_field :password_confirmation #, :placeholder => "Confirmed Password"
+		.actions
+			= f.submit "Try now for free", :class => "btn btn-large btn-primary" #, :src => "/assets/slices/bt_Try_Now_for_Free.png", :type => :image
+
+	= link_to "If you have an account, sign in here", login_path
+	.clearfix

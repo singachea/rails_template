@@ -1,0 +1,7 @@
+- opts = options.map{|key| [key.humanize, key]}
+
+.search_box_section
+	= form_tag nil, :method => :get do
+		= text_field_tag :search_key, params[:search_key], :placeholder => "Search"
+		= select_tag :criterion, options_for_select(opts, params[:criterion])
+		= submit_tag :search, :name => nil

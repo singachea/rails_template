@@ -6,7 +6,7 @@ def database_inject(db_adapter)
   db_username = "root" unless db_username.present?
   db_password = ask("Database password [<empty>]: ")
 
-  yml_env = File.read("#{$root_dir}/templates/database/#{db_adapter}.yml")
+  yml_env = File.read("#{$root_directory}/templates/database/#{db_adapter}.yml")
   envs = %w(develpment test production)
   envs << "staging" if yes_or_blank? "Do you want to include staging environment?"
   yml = ""

@@ -1,0 +1,27 @@
+= javascript_toggle "toggle-btn", [:field]
+
+%h1 All Users
+
+%p
+	= link_to "Add new user", new_admin_user_path, :class => "btn"
+
+%table.table.table-striped
+	%tr
+		= ths_sortable_keys ["id", "email", "first_name", "last_name", "role"]
+		= ths_sortable_keys ["locked", "activated"]
+		%th Action
+	- @users.each do |user|
+		%tr
+			%td.center= user.id
+			%td= link_to user.email, [:admin, user]
+			%td= user.first_name
+			%td= user.last_name
+			%td.center= user.role.humanize
+			%td.center= current_user.id == user.id ? label_yes_no(user.locked) : button_yes_no(user.locked, toggle_admin_user_url(user), "data-field" => "locked", :class => "toggle-btn")
+			%td.center= current_user.id == user.id ? label_yes_no(user.activated) : button_yes_no(user.activated, toggle_admin_user_url(user), "data-field" => "activated", :class => "toggle-btn")
+			%td.center
+				= link_to "Edit", edit_admin_user_url(user), :class => "btn btn-primary"
+				= link_to "Delete", [:admin, user], :method => :delete, :confirm => "Are you sure that you want to delete this #{user.email}?", :class => "btn btn-danger"
+			
+
+= will_paginate @users , :class => "digg_pagination"
