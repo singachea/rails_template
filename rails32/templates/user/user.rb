@@ -15,6 +15,7 @@ def user_run
 end
 
 def user_prepare_model
+    run_bundle
     generate :model, "user", "email:string:index", "first_name:string", "last_name:string", "password_digest:string", "password_recoverable:string", "role:string", "auth_token:string", "locked:boolean", "activated:boolean"
     user_file = Dir["#{destination_root}/db/migrate/*create_users.rb"].first
     copy_file "#{$root_directory}/templates/user/db/user_migrate.rb", user_file, force: true

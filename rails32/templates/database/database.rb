@@ -32,6 +32,7 @@ def database_run
     gem database_types[database_adapter.to_sym]
     database_inject database_adapter
 
+    run_bundle
     rake "db:drop" 
     rake "db:create"
   end
