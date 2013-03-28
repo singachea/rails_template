@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  #extend ModelUtilities
+  extend ModelUtilities
   ROLES = %w(admin member)
   SORT_KEYS = { :asc => ["first_name", "last_name", "email", "role", "activated"], :desc => ["id", "locked"], :default => "id desc"}
   

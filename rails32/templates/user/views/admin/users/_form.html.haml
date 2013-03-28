@@ -1,5 +1,5 @@
 = simple_form_for [:admin, @user] do |f|
-	= f.input :email
+	= f.input :email, as: :string
 	= f.input :password
 	= f.input :first_name
 	= f.input :last_name

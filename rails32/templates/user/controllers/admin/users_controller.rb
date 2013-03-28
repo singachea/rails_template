@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     sort_key = User.sort_orders(params[:sort])
-    @users = User.order(sort_key).page(params[:page]).per_page(DEFAULT_PAGE_SIZE)
+    @users = User.order(sort_key).page(params[:page]).per_page(30)
   end
 
   def new

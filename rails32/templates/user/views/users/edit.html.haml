@@ -1,5 +1,7 @@
 %h1 Edit your profile
 
+%p Leave your <strong>Password</strong> and <strong>Confirmed Password</strong> blank if you don't want to change your current password.
+
 #border-enclosed.short-input
 	= form_for :user, :url => profile_url, :method => :put, :html => {:class => "form form-inline"} do |f|
 		= render "shared/errors", :object => @user, :message => "Your profile cannot be saved due to the following reasons"
@@ -13,8 +15,8 @@
 			= f.label :password
 			%br= f.password_field :password
 		.field
-			= f.label :password_confirmation, "Repeat Password"
+			= f.label :password_confirmation, "Confirmed Password"
 			%br= f.password_field :password_confirmation
 		
 		.actions
-			= f.submit "Update my profile", :class => "btn"
+			= f.submit "Update", :class => "btn"

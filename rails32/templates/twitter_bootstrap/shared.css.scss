@@ -31,7 +31,12 @@ input[type="submit"]{
         line-height: 35px;
         .caret{
             margin-top: 15px !important;
-        }   
+        }
+
+        .icon-off{
+            margin-top: 10px !important;
+        }
+
     }
 
     .divider{
@@ -86,7 +91,7 @@ a{
 h1, h2{
   margin-bottom: 10px;
 }
-input[type="text"], textarea{
+input[type="text"], input[type="password"], textarea{
     width: 300px;
 }
 
@@ -163,4 +168,36 @@ textarea{
 #footer{
   padding: 15px;
   text-align: center;
+}
+
+
+#login-section{
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  //border: 1px solid #CCC;
+  input[type="text"], input[type="password"]{
+    width: 95%;
+    height: 25px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+  label{
+    font-size: 12px;
+  }
+  .field{
+    margin-bottom: 10px;
+  }
+  input[type="submit"]{
+    @extend .btn-primary;
+    @extend .btn-large;
+    margin-top: 5px;
+    width: 100%;
+  }
+  input[type="checkbox"]{
+    margin-top: -3px;
+  }
+
 }

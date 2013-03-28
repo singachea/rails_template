@@ -43,6 +43,7 @@ def user_application_support
     inject_into_class "app/controllers/application_controller.rb", "ApplicationController", "\n  include Injection::Controller::Application\n"
     insert_into_file "app/helpers/application_helper.rb", "\n  include Injection::Helper::Application\n", :after => "ApplicationHelper\n"    
     directory "#{$root_directory}/templates/user/views/shared", "app/views/shared"
+    directory "#{$root_directory}/templates/user/app_utilities", "app/utilities"
 end
 
 def user_prepare_mail

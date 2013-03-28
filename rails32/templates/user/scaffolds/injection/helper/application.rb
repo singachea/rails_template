@@ -78,7 +78,7 @@ module Injection::Helper::Application
       script = <<-section_js
           <script type = "text/javascript">
             $(function(){
-              $(".#{klass}").live("click", function(e){
+              $(".#{klass}").on("click", function(e){
                 e.preventDefault();
                 var url = $(this).attr("href");
                 var triggerer = $(this);
