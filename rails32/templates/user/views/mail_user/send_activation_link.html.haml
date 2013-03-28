@@ -1,0 +1,11 @@
+%h1 Hello #{@user.first_name}
+
+%p Welcome to be part of our family! Click the following link to activate your account!
+
+= link_to "Click here", activate_profile_url(:id => @user.id, :digest => @digest, :key => @key), :target => "_blank"
+
+
+%br
+%br
+
+%p Best Regards
