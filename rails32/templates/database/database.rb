@@ -7,7 +7,7 @@ def database_inject(db_adapter)
   db_password = ask("Database password [<empty>]: ")
 
   yml_env = File.read("#{$root_directory}/templates/database/#{db_adapter}.yml")
-  envs = %w(develpment test production)
+  envs = %w(development test production)
   envs << "staging" if yes_or_blank? "Do you want to include staging environment?"
   yml = ""
   envs.each { |env| yml += yml_env.gsub("database_environment", env) }
@@ -31,5 +31,8 @@ def database_run
 
     gem database_types[database_adapter.to_sym]
     database_inject database_adapter
+
+    rake "db:drop" 
+    rake "db:create"
   end
 end

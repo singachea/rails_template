@@ -58,17 +58,14 @@ def user_prepare_mail
 CONFIG
 
     insert_into_file "config/environments/development.rb", config_settings, :after => "Application.configure do\n"
-
-
-    END
-    
 end
 
 def user_seeding
     admin_email = ask_with_default("Enter your admin email [admin@2359media.com]:", "admin@2359media.com")
     admin_password = ask_with_default("Enter your admin password [adminadmin]:", "adminadmin")
     append_to_file "db/seeds.rb", read_file_and_gsub(__FILE__, "db/seeds.rb", {admin_email: admin_email, admin_password: admin_password})
-    run_bundle 
+    run_bundle
+    rake "db:drop" 
     rake "db:create"
     rake "db:migrate"
     rake "db:seed"    
